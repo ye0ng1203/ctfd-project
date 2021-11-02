@@ -62,7 +62,7 @@ spec:
         - name: LOG_FOLDER
           value: /var/log/CTFd
         - name: REDIS_URL
-          value: redis://ctfd-redis.ikdj1c.ng.0001.apn2.cache.amazonaws.com:6379
+          value: redis://
         - name: REVERSE_PROXY
           value: "true"
         - name: UPLOAD_FOLDER
