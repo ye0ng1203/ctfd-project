@@ -84,12 +84,12 @@ data:
     /usr/share/mysql\nlc_messages\t= en_US\nskip-external-locking\n#\n# Instead of
     skip-networking the default is now to listen only on\n# localhost which is more
     compatible and is not less secure.\n#bind-address\t\t= 127.0.0.1\n#\n# * Fine
-    Tuning\n#\nmax_connections\t\t= 100\nconnect_timeout\t\t= 5\nwait_timeout\t\t=
+    Tuning\n#\nmax_connections\t\t= 10000\nconnect_timeout\t\t= 5\nwait_timeout\t\t=
     600\nmax_allowed_packet\t= 16M\nthread_cache_size       = 128\nsort_buffer_size\t=
     4M\nbulk_insert_buffer_size\t= 16M\ntmp_table_size\t\t= 32M\nmax_heap_table_size\t=
     32M\n#\n# * MyISAM\n#\n# This replaces the startup script and checks MyISAM tables
     if needed\n# the first time they are touched. On error, make copy and try a repair.\nmyisam_recover_options
-    = BACKUP\nkey_buffer_size\t\t= 128M\n#open-files-limit\t= 2000\ntable_open_cache\t=
+    = BACKUP\nkey_buffer_size\t\t= 256M\n#open-files-limit\t= 2000\ntable_open_cache\t=
     400\nmyisam_sort_buffer_size\t= 512M\nconcurrent_insert\t= 2\nread_buffer_size\t=
     2M\nread_rnd_buffer_size\t= 1M\n#\n# * Query Cache Configuration\n#\n# Cache only
     tiny result sets, so we can fit more in the query cache.\nquery_cache_limit\t\t=
@@ -115,7 +115,7 @@ data:
     dates etc.\n#sql_mode\t\t= NO_ENGINE_SUBSTITUTION,TRADITIONAL\n#\n# * InnoDB\n#\n#
     InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.\n# Read
     the manual for more InnoDB related options. There are many!\ndefault_storage_engine\t=
-    InnoDB\ninnodb_buffer_pool_size\t= 256M\ninnodb_log_buffer_size\t= 8M\ninnodb_file_per_table\t=
+    InnoDB\ninnodb_buffer_pool_size\t= 2048M\ninnodb_log_buffer_size\t= 8M\ninnodb_file_per_table\t=
     1\ninnodb_open_files\t= 400\ninnodb_io_capacity\t= 400\ninnodb_flush_method\t=
     O_DIRECT\n#\n# * Security Features\n#\n# Read the manual, too, if you want chroot!\n#
     chroot = /var/lib/mysql/\n#\n# For generating SSL certificates I recommend the
@@ -130,6 +130,5 @@ data:
     /etc/mysql/mariadb.cnf\n!includedir /etc/mysql/conf.d/\n"
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
   name: mysql-conf
   namespace: ctfd
